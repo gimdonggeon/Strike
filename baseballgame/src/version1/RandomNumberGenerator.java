@@ -4,8 +4,8 @@ import java.util.Random;
 import java.util.Set;
 import java.util.LinkedHashSet;
 
-public class RandomNumberGenerator { // 모집공고
-    private Set<Integer>ballNum;
+public class RandomNumberGenerator {
+    private Set<Integer> ballNum;
     public RandomNumberGenerator(){
         ballNum = new LinkedHashSet<>();        //순서가 있고, 중복 불가한 LinkedHashSet 사용
     }
