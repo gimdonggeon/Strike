@@ -7,7 +7,7 @@ import java.util.Set;
 public class BaseballGame {
     static Scanner sc = new Scanner(System.in);
     public void gameStart() {
-        RandomNumberGenerator randNum = new RandomNumberGenerator(); // randNum : 기사아저씨
+        RandomNumberGenerator randNum = new RandomNumberGenerator();
         randNum.setBall();
         System.out.println("숫자야구게임");
         System.out.println("1. 게임시작 2.게임 종료");
@@ -24,10 +24,20 @@ public class BaseballGame {
             Set<Integer> answerNumber = randNum.getAnswer();
             String[] strArr = threenumber.split("");
             String firstNumber = strArr[0];
+            int firstChoiceNumber = Integer.parseInt(firstNumber);
+                // 답과 쪼개진 숫자가 값과 자리가 같으면 Strike를 출력
+                // 답의 값만 같으면 Ball을 출력
+            Integer[] answerArray = answerNumber.toArray(new Integer[0]);
+            for(int i = 0; i < strArr.length; i++) {
+                int currentChoiceNumber = Integer.parseInt(strArr[i]);
 
-                // 답과 쪼개진 숫자가 값과 자리가 같은지 생각
+                if (currentChoiceNumber == answerArray[i]) {
+                    System.out.println("스트라이크");
+                }else if (answerNumber.contains(currentChoiceNumber)) {
+                    System.out.println("볼");
+                }
+            }
 
-                // 답의 값만 같은지 생각
                 // 판단을 내림
                 // 끝자리까지 반복
 
